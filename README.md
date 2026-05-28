@@ -21,3 +21,5 @@ Este proyecto implementa una aplicación web con Flask que se despliega utilizan
 | `/`        | GET    | Página HTML con hostname y ambiente            |
 | `/health`  | GET    | Health check: `{"status": "ok", "hostname"}`   |
 | `/info`    | GET    | Información de la app, versión, hostname y env |
+
+Deploy automático configurado - GCP VM: 34.29.55.89
