@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  app:
+    image: angelalvarado1230/devops-app:latest
+    ports:
+      - "80:5000"
+    environment:
+      - ENVIRONMENT=produccion
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: devopsdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  portainer:
+    image: portainer/portainer-ce
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: always
+
+volumes:
+  pgdata:
+  portainer_data:
